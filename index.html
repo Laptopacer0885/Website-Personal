@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Letter</title>
+    <style>
+      body {
+    font-family: 'Dancing Script', cursive;
+    background: url('img/bg1.jpg') no-repeat center center;
+    background-size: contain; /* Menjaga ukuran asli gambar */
+    background-color: #f0f8ff; /* Warna latar belakang jika gambar tidak mencakup seluruh area */
+    color: #6c757d;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+
+        .container {
+            
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeInPhoto 1s forwards;
+        }
+
+        .text {
+            font-size: 18px;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInText 2s forwards;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes fadeInPhoto {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .final-thank-you {
+            font-size: 24px;
+            margin-top: 50px;
+            opacity: 0;
+            animation: slideUp 2s forwards;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .question {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .photo-container {
+            display: none;
+        }
+
+        .greeting {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 2s forwards;
+        }
+
+        /* Media Queries untuk Mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+                max-height: 90vh;
+            }
+
+            .photo img {
+                width: 100%;
+                height: auto;
+            }
+
+            .text {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        .snowflake {
+    position: fixed;
+    top: 0;
+    pointer-events: none; /* Tidak mengganggu klik */
+    animation: fall linear infinite;
+    color: white;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+audio {
+        display: none;
+    }
+
+    .snowflake {
+        position: fixed;
+        top: 0;
+        pointer-events: none;
+        animation: fall linear infinite;
+        color: white;
+        z-index: 9999;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(100vh);
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Step 1: Nama Pengguna -->
+        <div class="question" id="question">
+            <h2>What's your name?</h2>
+            <input type="text" id="name" placeholder="Enter your name" />
+            <button onclick="nextStep()">Submit</button>
+        </div>
+
+        
+
+        <!-- Step 2: Sapaan Pengguna -->
+        <div class="greeting" id="greeting"></div>
+
+        <!-- Step 3: Foto dan Surat -->
+        <div class="content" id="content">
+            <!-- Foto Wisuda -->
+            <div class="photo-container" id="photo-1">
+                <div class="photo">
+                    <img src="img/wisuda.jpeg" alt="Foto Wisuda" loading="lazy" />
+                </div>
+                <p id="text-1" class="text">I am truly grateful to have reached this point, an achievement that I have attained by the grace and help of Lord Jesus. This journey has been full of challenges, but with faith and prayers, I have been able to keep moving forward. I am also deeply thankful for the incredible support I have received. </p>
+            </div>
+
+            <!-- Foto Keluarga -->
+            <div class="photo-container" id="photo-2">
+                <div class="photo">
+                    <img src="img/keluarga.jpeg" alt="Foto Keluarga" loading="lazy" />
+                </div>
+                <p id="text-2" class="text">I cannot hide this gratitude, as reaching this point is a great blessing from Lord Jesus. Every step I take is filled with His help, but what is equally important is the invaluable support from my family. They are always there for me, offering love and support that give me the strength to keep moving forward.</p>
+            </div>
+
+            <!-- Foto dengan Sponsor 1 -->
+            <div class="photo-container" id="photo-3">
+                <div class="photo">
+                    <img src="img/sponsor1.jpeg" alt="Foto dengan Sponsor 1" loading="lazy" />
+                </div>
+                <p id="text-3" class="text">With a heart full of gratitude, I am here today, and I believe this is all by the grace of Lord Jesus who has guided my steps. More than that, I am deeply thankful to you as my sponsor, who has trusted me and provided invaluable support. I am grateful to have met you a few months ago, and I believe you are one of God's shapes of mercy and love in my life. Without your support and trust, I would not have been able to achieve what I have today.</p>
+            </div>
+
+            <!-- Foto dengan Sponsor 2 -->
+            <div class="photo-container" id="photo-4">
+                <div class="photo">
+                    <img src="img/sponsor2.jpeg" alt="Foto dengan Sponsor 2" loading="lazy" />
+                </div>
+                <p id="text-4" class="text">Your kindness has truly made a difference in my life...</p>
+            </div>
+
+            <!-- Foto dengan Sponsor 3 -->
+            <div class="photo-container" id="photo-5">
+                <div class="photo">
+                    <img src="img/sponsor3.jpeg" alt="Foto dengan Sponsor 3" loading="lazy" />
+                </div>
+                <p id="text-5" class="text">Once again, thank you for all the support, trust, and kindness you have given. With the help of Lord Jesus and your support, I believe there are still many amazing things we can achieve. May we all be continually blessed and guided by God in every steps of our lives. Thank you for the incredible support, and may we always be surrounded by peace and happiness from Lord.</p>
+                
+                
+                <h2 id="text-6" class="textfinal">Thank you so much for your unwavering support and trust, and may God's love and guidance continue to lead us on this journey together.</h2>
+                <h4>God bless you abundantly</h4>
+            </div>
+
+            <div class="final-thank-you">
+                
+            </div>
+        </div>
+        <button id="next-button" onclick="nextStep()">Next</button>
+        
+
+        
+    </div>
+
+    <audio id="christmas-audio" autoplay loop>
+        <source src="img/lagu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let step = 1;
+
+        function nextStep() {
+            if (step === 1) {
+                const name = document.getElementById('name').value;
+                if (name) {
+                    document.getElementById('greeting').innerHTML = `Hello, ${name}! You have come to the right place! Get ready to enjoy some moments together below.
+`;
+                    document.getElementById('greeting').style.opacity = '1';
+                    document.getElementById('question').style.display = 'none';
+                    step++;
+                } else {
+                    alert('Please enter your name');
+                }
+            } else if (step === 2) {
+                document.getElementById('photo-1').style.display = 'block';
+                document.getElementById('text-1').style.opacity = '1';
+                step++;
+            } else if (step === 3) {
+                document.getElementById('photo-2').style.display = 'block';
+                document.getElementById('text-2').style.opacity = '1';
+                step++;
+            } else if (step === 4) {
+                document.getElementById('photo-3').style.display = 'block';
+                document.getElementById('text-3').style.opacity = '1';
+                step++;
+            } else if (step === 5) {
+                document.getElementById('photo-4').style.display = 'block';
+                document.getElementById('text-4').style.opacity = '1';
+                step++;
+            } else if (step === 6) {
+                document.getElementById('photo-5').style.display = 'block';
+                document.getElementById('text-5').style.opacity = '1';
+                step++;
+            } else {
+                document.querySelector('.final-thank-you').style.opacity = '1';
+                document.getElementById('next-button').style.display = 'none';
+            }
+        }
+
+
+        // Fungsi untuk membuat butiran salju
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = Math.random() * 100 + 'vw'; // Posisi horizontal acak
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durasi jatuh
+        snowflake.style.opacity = Math.random(); // Transparansi acak
+        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; // Ukuran acak
+        snowflake.innerHTML = '❄'; // Simbol salju
+        document.body.appendChild(snowflake);
+
+        // Hapus elemen setelah animasi selesai
+        setTimeout(() => {
+            snowflake.remove();
+        }, 500000);
+    }
+
+    // Interval untuk membuat salju
+    setInterval(createSnowflake, 200);
+
+
+
+    // Musik Natal
+    document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('christmas-audio');
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    document.addEventListener('click', () => {
+                        audio.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
